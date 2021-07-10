@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./components/navbar.component";
+import Homepage from "./components/homepage.component";
+import ListAnimal from "./components/list-animal.component";
+import EditAnimal from "./components/edit-animal.component";
+import CreateAnimal from "./components/create-animal.component";
+import CreateUser from "./components/create-user.component";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Router>
+			<Navbar />
+			<br />
+			<Route path="/" exact component={Homepage} />
+			<Route path="/animals" component={ListAnimal} />
+			<Route path="/edit/:id" component={EditAnimal} />
+			<Route path="/create" component={CreateAnimal} />
+			<Route path="/user" component={CreateUser} />
+		</Router>
+	);
 }
 
 export default App;
